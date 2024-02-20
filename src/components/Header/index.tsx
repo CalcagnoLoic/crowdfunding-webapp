@@ -9,12 +9,12 @@ const Component = () => {
 
   return (
     <header
-      className="h-[300px] bg-cover bg-center bg-no-repeat px-10 pt-5 md:px-24 lg:px-40 md:pt-12 lg:h-[400px] flex justify-between"
+      className="flex h-[300px] justify-between bg-cover bg-center bg-no-repeat px-10 pt-5 md:px-24 md:pt-12 lg:h-[400px] lg:px-40"
       style={{
         backgroundImage: `url(${isMobile ? bgMobile : bgDesktop})`,
       }}
     >
-      <IconLogo />
+      <IconLogo isMainLogo={true} />
       <Navbar />
     </header>
   );

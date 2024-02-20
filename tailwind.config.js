@@ -13,6 +13,7 @@ export default {
         gallery: "#EAEAEA", //border box
         gulfStream: "#8BB4B3", //active-box
         patina: "#649694", //text-modal
+        alabaster: "#FAFAFA"
       },
     },
   },
