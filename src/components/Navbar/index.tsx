@@ -6,10 +6,10 @@ const Component = () => {
       {isMobile ? (
         <p className="text-white">TO DO</p>
       ) : (
-        <ul className="flex text-white gap-5 font-bold">
-            <li>About</li>
-            <li>Discover</li>
-            <li>Get Started</li>
+        <ul className="flex gap-5 font-bold text-white ">
+          <li className="cursor-pointer hover:underline">About</li>
+          <li className="cursor-pointer hover:underline">Discover</li>
+          <li className="cursor-pointer hover:underline">Get Started</li>
         </ul>
       )}
     </>
