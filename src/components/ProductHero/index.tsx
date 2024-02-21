@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Button from "../Button";
 import Heading from "../../typographies/Heading";
 import IconLogo from "../../icons/IconLogo";
@@ -5,7 +7,21 @@ import Paragraph from "../../typographies/Paragraph";
 import IconBookmark from "../../icons/IconBookmark";
 
 const Component = () => {
-  const isMobile = window.innerWidth < 768 ? true : false;
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth < 768 ? true : false,
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768 ? true : false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="relative rounded-xl bg-white py-8 ">
