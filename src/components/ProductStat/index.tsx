@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import BoxLayout from "../../layout/BoxLayout";
 import Line from "../Line";
 import StatsInformations from "../StatsInformations";
-
-type ProductStatProps = {
-  positionCSS: string;
-};
+import { ProductStatProps } from "../../types/type";
 
 const Component = ({ positionCSS }: ProductStatProps) => {
   const [isMobile, setIsMobile] = useState(
