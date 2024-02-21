@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import BoxLayout from "../../layout/BoxLayout";
 import Button from "../Button";
 import Heading from "../../typographies/Heading";
 import IconLogo from "../../icons/IconLogo";
@@ -24,7 +25,7 @@ const Component = () => {
   }, []);
 
   return (
-    <div className="relative rounded-xl bg-white py-8 ">
+    <BoxLayout css="relative py-8 ">
       <IconLogo
         isMainLogo={false}
         css="absolute -top-7 left-1/2 -translate-x-1/2"
@@ -56,7 +57,7 @@ const Component = () => {
           />
         )}
       </div>
-    </div>
+    </BoxLayout>
   );
 };
 

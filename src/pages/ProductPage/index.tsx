@@ -1,5 +1,6 @@
 import Header from "../../components/Header";
 import ProductHero from "../../components/ProductHero";
+import ProductStat from "../../components/ProductStat";
 
 const Page = () => (
   <div className="bg-alabaster">
@@ -7,8 +8,7 @@ const Page = () => (
 
     <main className="-mt-20 px-10 md:px-24 xl:px-80">
       <ProductHero />
-      <div className="mt-5 h-36 w-full bg-red-500"></div>
-      <div className="mt-5 h-36 w-full bg-red-500"></div>
+      <ProductStat positionCSS="mt-6" />
     </main>
 
     <footer></footer>
