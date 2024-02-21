@@ -1,11 +1,26 @@
+import { useEffect, useState } from "react";
+
 import bgMobile from "../../../public/images/image-hero-mobile.jpg";
 import bgDesktop from "../../../public/images/image-hero-desktop.jpg";
-
 import IconLogo from "../../icons/IconLogo";
 import Navbar from "../Navbar";
 
 const Component = () => {
-  const isMobile = window.innerWidth < 768 ? true : false;
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth < 768 ? true : false,
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768 ? true : false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <header
