@@ -19,8 +19,16 @@ const Component = ({ positionCSS }: ProductStatProps) => (
         css="text-codGray font-bold text-xl"
       />
 
-      <Paragraph kind="p" content={textSection} css="text-boulder mt-8" />
-      <Paragraph kind="p" content={textSectionBis} css="text-boulder mt-8" />
+      <Paragraph
+        kind="p"
+        content={textSection}
+        css="text-boulder mt-8 leading-7"
+      />
+      <Paragraph
+        kind="p"
+        content={textSectionBis}
+        css="text-boulder mt-8 leading-7"
+      />
     </>
   </BoxLayout>
 );

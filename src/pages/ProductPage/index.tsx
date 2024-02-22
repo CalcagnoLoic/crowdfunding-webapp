@@ -1,7 +1,9 @@
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import ProductHero from "../../components/ProductHero";
 import ProductStat from "../../components/ProductStat";
 import ProductSection from "../../components/ProductSection";
+
 
 const Page = () => (
   <div className="bg-alabaster">
@@ -13,7 +15,7 @@ const Page = () => (
       <ProductSection positionCSS="mt-6" />
     </main>
 
-    <footer></footer>
+    <Footer />
   </div>
 );
 
