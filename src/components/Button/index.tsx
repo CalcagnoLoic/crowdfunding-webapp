@@ -7,6 +7,8 @@ type ButtonProps = {
   isIcon: boolean;
   isMobile?: boolean;
   isDisabled?: boolean;
+  onClick?: () => void;
+  clicked?: boolean;
 };
 
 const Component = ({
@@ -15,13 +17,16 @@ const Component = ({
   isIcon,
   isMobile,
   isDisabled,
+  onClick,
+  clicked,
 }: ButtonProps) => {
   return (
     <button
       className={`${css} flex rounded-full font-bold ${isMobile ? "hidden" : ""}`}
       disabled={isDisabled}
+      onClick={onClick}
     >
-      {isIcon && <IconBookmark />}
+      {isIcon && clicked !== undefined && <IconBookmark clicked={clicked} />}
       <Paragraph kind="p" content={content} css="self-center px-5" />
     </button>
   );
