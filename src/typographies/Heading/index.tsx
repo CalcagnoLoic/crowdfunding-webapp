@@ -11,6 +11,9 @@ const Typographies = ({ kind, content, css }: HeadingProps) => {
 
     case "h2":
       return <h2 className={css}>{content}</h2>;
+
+    case "h3":
+      return <h3 className={css}>{content}</h3>;
   }
 };
 

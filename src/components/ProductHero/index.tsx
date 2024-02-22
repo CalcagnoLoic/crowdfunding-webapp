@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useMobile } from "../../hooks/useMobile";
+import { useState } from "react";
 
 import BoxLayout from "../../layout/BoxLayout";
 import Button from "../Button";
@@ -8,21 +9,8 @@ import Paragraph from "../../typographies/Paragraph";
 import IconBookmark from "../../icons/IconBookmark";
 
 const Component = () => {
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth < 768 ? true : false,
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768 ? true : false);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMobile = useMobile();
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
     <BoxLayout css="relative py-8 ">
@@ -42,18 +30,23 @@ const Component = () => {
       <div className="mt-10 flex justify-center px-2 md:justify-between md:px-12">
         <Button
           content="Back this project"
-          css="bg-keppel hover:bg-genoa duration-300 transition ease text-white px-5 lg:px-10 py-4 "
+          css="btn cursor-pointer"
           isIcon={false}
         />
 
         {isMobile ? (
-          <IconBookmark />
+          <IconBookmark
+            clicked={isClicked}
+            onClick={() => setIsClicked(!isClicked)}
+          />
         ) : (
           <Button
-            content="Bookmark"
-            css="text-boulder bg-wildSand"
+            content={isClicked ? "Bookmarked" : "Bookmark"}
+            css={`bg-wildSand cursor-pointer ${isClicked ? "text-genoa" : "text-boulder"}`}
             isMobile={isMobile}
             isIcon={true}
+            onClick={() => setIsClicked(!isClicked)}
+            clicked={isClicked}
           />
         )}
       </div>

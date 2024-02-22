@@ -1,25 +1,12 @@
-import { useEffect, useState } from "react";
+import { useMobile } from "../../hooks/useMobile";
+import { ProductStatProps } from "../../types/type";
+
 import BoxLayout from "../../layout/BoxLayout";
 import Line from "../Line";
 import StatsInformations from "../StatsInformations";
-import { ProductStatProps } from "../../types/type";
 
 const Component = ({ positionCSS }: ProductStatProps) => {
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth < 768 ? true : false,
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768 ? true : false);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMobile = useMobile();
 
   return (
     <BoxLayout
