@@ -40,18 +40,14 @@ const Component = () => {
       />
 
       <div className="mt-10 flex justify-center px-2 md:justify-between md:px-12">
-        <Button
-          content="Back this project"
-          css="bg-keppel hover:bg-genoa duration-300 transition ease text-white px-5 lg:px-10 py-4 "
-          isIcon={false}
-        />
+        <Button content="Back this project" css="btn cursor-pointer" isIcon={false} />
 
         {isMobile ? (
           <IconBookmark />
         ) : (
           <Button
             content="Bookmark"
-            css="text-boulder bg-wildSand"
+            css="text-boulder bg-wildSand cursor-pointer"
             isMobile={isMobile}
             isIcon={true}
           />
