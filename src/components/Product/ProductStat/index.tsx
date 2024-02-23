@@ -1,9 +1,9 @@
-import { useMobile } from "../../hooks/useMobile";
-import { ProductStatProps } from "../../types/type";
+import { useMobile } from "../../../hooks/useMobile";
+import { ProductStatProps } from "../../../types/type";
 
-import BoxLayout from "../../layout/BoxLayout";
-import Line from "../Line";
-import StatsInformations from "../StatsInformations";
+import BoxLayout from "../../../layout/BoxLayout";
+import Line from "../../Line";
+import StatsInformations from "../../StatsInformations";
 
 const Component = ({ positionCSS }: ProductStatProps) => {
   const isMobile = useMobile();
@@ -25,7 +25,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
 
         <input
           type="range"
-          value={56}
+          defaultValue={56}
           max={70}
           name=""
           id=""

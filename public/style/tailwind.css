@@ -15,6 +15,22 @@
 
 @layer components {
   .btn {
-    @apply bg-keppel px-5 py-4 text-white transition duration-300 ease-in-out hover:bg-genoa lg:px-10;
+    @apply bg-keppel px-5 py-4 text-sm md:text-base text-white transition duration-300 ease-in-out hover:bg-genoa lg:px-10;
+  }
+
+  .nav-items-desktop {
+    @apply hover:underline;
+  }
+
+  .nav-items-mobile {
+    @apply p-6 text-codGray hover:underline;
+  }
+
+  .nav-items-mobile:nth-child(2) {
+    @apply border-y-[1px];
+  }
+
+  .no-scroll {
+    @apply overflow-hidden
   }
 }
