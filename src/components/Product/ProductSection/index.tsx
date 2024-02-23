@@ -1,11 +1,11 @@
-import { ProductStatProps } from "../../types/type";
-import { textSection } from "../../data/data";
-import { textSectionBis } from "../../data/data";
+import { ProductStatProps } from "../../../types/type";
+import { textSection } from "../../../data/data";
+import { textSectionBis } from "../../../data/data";
 
-import BoxLayout from "../../layout/BoxLayout";
-import Heading from "../../typographies/Heading";
-import OfferSection from "../OfferSection";
-import Paragraph from "../../typographies/Paragraph";
+import BoxLayout from "../../../layout/BoxLayout";
+import Heading from "../../../typographies/Heading";
+import OfferSection from "../../OfferSection";
+import Paragraph from "../../../typographies/Paragraph";
 
 const Component = ({ positionCSS }: ProductStatProps) => (
   <BoxLayout

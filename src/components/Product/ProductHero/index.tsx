@@ -1,12 +1,12 @@
-import { useMobile } from "../../hooks/useMobile";
+import { useMobile } from "../../../hooks/useMobile";
 import { useState } from "react";
 
-import BoxLayout from "../../layout/BoxLayout";
-import Button from "../Button";
-import Heading from "../../typographies/Heading";
-import IconLogo from "../../icons/IconLogo";
-import Paragraph from "../../typographies/Paragraph";
-import IconBookmark from "../../icons/IconBookmark";
+import BoxLayout from "../../../layout/BoxLayout";
+import Button from "../../Button";
+import Heading from "../../../typographies/Heading";
+import IconLogo from "../../../icons/IconLogo";
+import Paragraph from "../../../typographies/Paragraph";
+import IconBookmark from "../../../icons/IconBookmark";
 
 const Component = () => {
   const isMobile = useMobile();

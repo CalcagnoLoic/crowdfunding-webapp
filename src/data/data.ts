@@ -1,3 +1,5 @@
+import { NavContent } from "../types/type";
+
 export const textSection: string =
   "The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.";
 
@@ -12,3 +14,11 @@ export const offerBlackEdition: string =
 
 export const offerMahoganyEdition: string =
   "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included. ";
+
+const NavContent: NavContent[] = [
+  { id: 1, content: "About" },
+  { id: 2, content: "Discover" },
+  { id: 3, content: "Get Started" },
+];
+
+export { NavContent };

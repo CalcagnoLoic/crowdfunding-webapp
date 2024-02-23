@@ -1,8 +1,8 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import ProductHero from "../../components/ProductHero";
-import ProductStat from "../../components/ProductStat";
-import ProductSection from "../../components/ProductSection";
+import ProductHero from "../../components/Product/ProductHero";
+import ProductStat from "../../components/Product/ProductStat";
+import ProductSection from "../../components/Product/ProductSection";
 
 
 const Page = () => (
