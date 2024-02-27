@@ -19,7 +19,11 @@ const Component = () => {
         css="absolute -top-7 left-1/2 -translate-x-1/2"
       />
 
-      <Heading kind="h1" content="mastercraft bamboo monitor riser" />
+      <Heading
+        kind="h1"
+        content="mastercraft bamboo monitor riser"
+        css="px-8 text-center text-xl font-bold capitalize text-codGray md:text-3xl lg:mt-5"
+      />
 
       <Paragraph
         kind="p"

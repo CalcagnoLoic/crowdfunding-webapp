@@ -14,7 +14,7 @@ const Component = ({ setIsOpen }: DropdownMenuProps) => {
 
   return (
     <>
-      <div className="fixed left-0 top-0 z-10 h-screen w-screen bg-gradient-to-b from-black via-dustyGray to-transparent opacity-70"></div>
+      <div className="opacity z-10 bg-gradient-to-b from-black via-dustyGray to-transparent opacity-70"></div>
       <div className="relative" ref={dropdownRef}>
         <NavItems
           ulStyle="absolute left-1/2 top-9 z-20 w-full -translate-x-[50%] rounded-lg border-[1px] bg-white"

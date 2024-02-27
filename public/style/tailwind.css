@@ -33,4 +33,8 @@
   .no-scroll {
     @apply overflow-hidden
   }
+
+  .opacity {
+    @apply fixed left-0 top-0 h-screen w-screen
+  }
 }

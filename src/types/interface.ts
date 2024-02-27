@@ -14,4 +14,5 @@ export interface ParagraphProps extends TypographiesProps {
 export interface LayoutProps {
   children: JSX.Element | JSX.Element[];
   css?: string;
+  state?: boolean;
 }
