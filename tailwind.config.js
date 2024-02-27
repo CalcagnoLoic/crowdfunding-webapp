@@ -14,7 +14,11 @@ export default {
         gulfStream: "#8BB4B3", //active-box
         patina: "#649694", //text-modal
         alabaster: "#FAFAFA",
-        dustyGray: "#979797"
+        dustyGray: "#979797",
+      },
+      backgroundImage: {
+        headerDesktop: "url('/public/images/image-hero-desktop.jpg')",
+        headerMobile: "url('/public/images/image-hero-mobile.jpg')",
       },
     },
   },

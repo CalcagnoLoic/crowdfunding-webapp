@@ -21,30 +21,31 @@ const Component = ({
   isDisabled,
   isFreeOffer,
 }: ModalOfferProps) => {
-  const [isClicked, setIsClicked] = useState<boolean>(true);
+  const [isChecked, setIsChecked] = useState<boolean>(true);
 
   const handleClick = () => {
-    setIsClicked((prevState) => !prevState);
+    setIsChecked(!isChecked);
   };
 
   return (
-    <OfferLayout css="mt-8" state={isClicked}>
+    <OfferLayout css="mt-8">
       <div className={isDisabled ? "opacity-30" : "cursor-pointer"}>
         <label
           htmlFor={id}
           className={`flex  ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"}`}
         >
           <input
-            type="checkbox"
+            type="radio"
             name="selectOffer"
             id={id}
             disabled={isDisabled}
+            className="w-4 accent-keppel"
           />
           <div className="ml-4 flex flex-col md:flex-row" onClick={handleClick}>
             <Heading
               kind="h2"
               content={title}
-              css={`font-bold ${isDisabled ? "" : "hover:text-keppel"} ${isClicked ? "" : "text-keppel"}`}
+              css={`font-bold ${isDisabled ? "" : "hover:text-keppel"}`}
             />
 
             {subtitle && (
@@ -63,7 +64,7 @@ const Component = ({
           css="ml-7 mt-3 leading-7 text-boulder"
         />
 
-        {!isClicked && !isDisabled && !isFreeOffer && <PledgeSection />}
+        {!isChecked && !isDisabled && !isFreeOffer && <PledgeSection />}
       </div>
     </OfferLayout>
   );

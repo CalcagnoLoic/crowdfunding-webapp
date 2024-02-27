@@ -6,11 +6,14 @@ import Button from "../../Button";
 import Heading from "../../../typographies/Heading";
 import IconLogo from "../../../icons/IconLogo";
 import Paragraph from "../../../typographies/Paragraph";
-import IconBookmark from "../../../icons/IconBookmark";
 
 const Component = () => {
   const isMobile = useMobile();
   const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
 
   return (
     <BoxLayout css="relative py-8 ">
@@ -38,21 +41,13 @@ const Component = () => {
           isIcon={false}
         />
 
-        {isMobile ? (
-          <IconBookmark
-            clicked={isClicked}
-            onClick={() => setIsClicked(!isClicked)}
-          />
-        ) : (
-          <Button
-            content={isClicked ? "Bookmarked" : "Bookmark"}
-            css={`bg-wildSand cursor-pointer ${isClicked ? "text-genoa" : "text-boulder"}`}
-            isMobile={isMobile}
-            isIcon={true}
-            onClick={() => setIsClicked(!isClicked)}
-            clicked={isClicked}
-          />
-        )}
+        <Button
+          content={isClicked ? "Bookmarked" : "Bookmark"}
+          css={` cursor-pointer ${isClicked ? "text-genoa " : "text-boulder "} ${isMobile ? "bg-transparent" : "bg-wildSand"}`}
+          isMobile={isMobile}
+          isIcon={true}
+          handleClick={handleClick}
+        />
       </div>
     </BoxLayout>
   );

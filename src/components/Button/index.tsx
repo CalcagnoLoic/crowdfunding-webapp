@@ -1,9 +1,10 @@
-import { useState } from "react";
-import IconBookmark from "../../icons/IconBookmark";
 import { ButtonProps } from "../../types/type";
+import { createPortal } from "react-dom";
+import { useState } from "react";
+
+import IconBookmark from "../../icons/IconBookmark";
 import Paragraph from "../../typographies/Paragraph";
 import ProductModal from "../Product/ProductModal";
-import { createPortal } from "react-dom";
 
 const Component = ({
   content,
@@ -11,36 +12,35 @@ const Component = ({
   isIcon,
   isMobile,
   isDisabled,
-  onClick,
-  clicked,
+  handleClick,
 }: ButtonProps) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  const handleOpenModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+  const toggleStateAndModal = () => {
+    setIsClicked(!isClicked);
     setIsModalOpen(true);
+    handleClick && handleClick();
   };
 
-  const handleCloseModal = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+  const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
   return (
     <>
       <button
-        className={`${css} relative flex rounded-full font-bold ${isMobile ? "hidden" : ""}`}
+        className={`${css} relative flex rounded-full font-bold `}
         disabled={isDisabled}
-        onClick={(e) => {
-          onClick && onClick();
-          handleOpenModal(e);
-        }}
+        onClick={toggleStateAndModal}
       >
-        {isIcon && clicked !== undefined && <IconBookmark clicked={clicked} />}
+        {isIcon && isClicked !== undefined && (
+          <IconBookmark clicked={isClicked} />
+        )}
         <Paragraph
           kind="p"
           content={content}
-          css="px-5 self-center block mx-auto"
+          css={`px-5 self-center block mx-auto ${isMobile ? "hidden" : ""}`}
         />
       </button>
 

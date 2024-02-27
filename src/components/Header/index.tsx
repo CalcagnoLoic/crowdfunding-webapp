@@ -2,8 +2,6 @@ import { useOverflow } from "../../hooks/useOverflow";
 import { useMobile } from "../../hooks/useMobile";
 import { useState } from "react";
 
-import bgMobile from "../../../public/images/image-hero-mobile.jpg";
-import bgDesktop from "../../../public/images/image-hero-desktop.jpg";
 import DropdownMenu from "../DropdownMenu";
 import IconLogo from "../../icons/IconLogo";
 import IconMenu from "../../icons/IconMenu";
@@ -21,12 +19,7 @@ const Component = () => {
   useOverflow({ state: isOpen });
 
   return (
-    <header
-      className="z-10 h-[300px] bg-cover bg-center bg-no-repeat px-10 pt-5 md:px-24 md:pt-12 lg:h-[400px] lg:px-40"
-      style={{
-        backgroundImage: `url(${isMobile ? bgMobile : bgDesktop})`,
-      }}
-    >
+    <header className="bg-headerMobile md:bg-headerDesktop h-[300px] bg-cover px-10 pt-5 md:px-24 md:pt-12 lg:h-[400px] lg:px-40">
       <nav className="flex justify-between">
         <IconLogo isMainLogo={true} css="z-20" />
 

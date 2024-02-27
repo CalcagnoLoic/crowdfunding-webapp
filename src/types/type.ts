@@ -13,6 +13,5 @@ export type ButtonProps = {
   isIcon: boolean;
   isMobile?: boolean;
   isDisabled?: boolean;
-  onClick?: () => void;
-  clicked?: boolean;
+  handleClick?: () => void;
 };
