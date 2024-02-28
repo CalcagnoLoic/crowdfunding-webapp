@@ -53,7 +53,6 @@ const Component = ({
 
         <div className="mt-4 md:mt-2 md:self-center">
           <Button
-            isIcon={false}
             content={`${isDisabled ? "Out Of Stock" : "Select Reward"}`}
             css={`btn ${isDisabled ? "bg-boulder text-white cursor-not-allowed hover:bg-boulder" : "cursor-pointer"}`}
             isDisabled={true}

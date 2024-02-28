@@ -1,20 +1,12 @@
-import { useMobile } from "../../../hooks/useMobile";
-import { useState } from "react";
-
 import BoxLayout from "../../../layout/BoxLayout";
 import Button from "../../Button";
 import Heading from "../../../typographies/Heading";
 import IconLogo from "../../../icons/IconLogo";
 import Paragraph from "../../../typographies/Paragraph";
 
+import Bookmark from "../../Bookmark";
+
 const Component = () => {
-  const isMobile = useMobile();
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
   return (
     <BoxLayout css="relative py-8 ">
       <IconLogo
@@ -35,19 +27,9 @@ const Component = () => {
       />
 
       <div className="mt-10 flex justify-center px-2 md:justify-between md:px-12">
-        <Button
-          content="Back this project"
-          css="btn cursor-pointer"
-          isIcon={false}
-        />
+        <Button content="Back this project" css="btn cursor-pointer" />
 
-        <Button
-          content={isClicked ? "Bookmarked" : "Bookmark"}
-          css={` cursor-pointer ${isClicked ? "text-genoa " : "text-boulder "} ${isMobile ? "bg-transparent" : "bg-wildSand"}`}
-          isMobile={isMobile}
-          isIcon={true}
-          handleClick={handleClick}
-        />
+        <Bookmark />
       </div>
     </BoxLayout>
   );

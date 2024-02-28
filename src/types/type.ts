@@ -10,8 +10,5 @@ export type NavContent = {
 export type ButtonProps = {
   content: string;
   css: string;
-  isIcon: boolean;
-  isMobile?: boolean;
   isDisabled?: boolean;
-  handleClick?: () => void;
 };

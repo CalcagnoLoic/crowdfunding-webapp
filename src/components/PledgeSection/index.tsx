@@ -24,7 +24,6 @@ const Component = () => {
             className="self-center rounded-full border-[1px] border-gallery px-5 py-4 pl-5 text-end font-extrabold active:border-keppel"
           />
           <Button
-            isIcon={false}
             content="Continue"
             css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center"
           />

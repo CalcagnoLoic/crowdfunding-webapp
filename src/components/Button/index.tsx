@@ -2,25 +2,19 @@ import { ButtonProps } from "../../types/type";
 import { createPortal } from "react-dom";
 import { useState } from "react";
 
-import IconBookmark from "../../icons/IconBookmark";
 import Paragraph from "../../typographies/Paragraph";
 import ProductModal from "../Product/ProductModal";
 
-const Component = ({
-  content,
-  css,
-  isIcon,
-  isMobile,
-  isDisabled,
-  handleClick,
-}: ButtonProps) => {
+const Component = ({ content, css, isDisabled }: ButtonProps) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  const toggleStateAndModal = () => {
+  const toggleStateAndModal = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     setIsClicked(!isClicked);
     setIsModalOpen(true);
-    handleClick && handleClick();
   };
 
   const handleCloseModal = () => {
@@ -34,18 +28,14 @@ const Component = ({
         disabled={isDisabled}
         onClick={toggleStateAndModal}
       >
-        {isIcon && isClicked !== undefined && (
-          <IconBookmark clicked={isClicked} />
-        )}
         <Paragraph
           kind="p"
           content={content}
-          css={`px-5 self-center block mx-auto ${isMobile ? "hidden" : ""}`}
+          css="px-5 self-center block mx-auto"
         />
       </button>
 
-      {!isIcon &&
-        isModalOpen &&
+      {isModalOpen &&
         createPortal(
           <ProductModal setCloseModal={handleCloseModal} />,
           document.body,
