@@ -11,6 +11,7 @@ type ModalOfferProps = {
   offer: string;
   isDisabled?: true;
   isFreeOffer?: boolean;
+  daysLeft?: string;
 };
 
 const Component = ({
@@ -20,6 +21,7 @@ const Component = ({
   offer,
   isDisabled,
   isFreeOffer,
+  daysLeft,
 }: ModalOfferProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
 
@@ -30,33 +32,55 @@ const Component = ({
   return (
     <OfferLayout css={`mt-8 ${isChecked ? "" : "border-keppel"} `}>
       <div className={isDisabled ? "opacity-30" : "cursor-pointer"}>
-        <label
-          htmlFor={id}
-          className={`flex  ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"}`}
-        >
-          <input
-            type="radio"
-            name="selectOffer"
-            id={id}
-            disabled={isDisabled}
-            className="w-4"
-          />
-          <div className="ml-4 flex flex-col md:flex-row" onClick={handleClick}>
-            <Heading
-              kind="h2"
-              content={title}
-              css={`font-bold ${isDisabled ? "" : "hover:text-keppel"}`}
+        <div className="flex justify-between">
+          <label
+            htmlFor={id}
+            className={`flex  ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+          >
+            <input
+              type="radio"
+              name="selectOffer"
+              id={id}
+              disabled={isDisabled}
+              className="w-4"
             />
-
-            {subtitle && (
+            <div
+              className="ml-4 flex flex-col md:flex-row"
+              onClick={handleClick}
+            >
               <Heading
-                kind="h3"
-                content={subtitle}
-                css="text-keppel mt-2 md:mt-0 md:ml-4"
+                kind="h2"
+                content={title}
+                css={`font-bold ${isDisabled ? "" : "hover:text-keppel"}`}
               />
-            )}
-          </div>
-        </label>
+
+              {subtitle && (
+                <Heading
+                  kind="h3"
+                  content={subtitle}
+                  css="text-keppel mt-2 md:mt-0 md:ml-4"
+                />
+              )}
+            </div>
+          </label>
+
+          {daysLeft && (
+            <div className="self-center">
+              <div className="flex">
+                <Paragraph
+                  kind="p"
+                  content={daysLeft}
+                  css="text-xl md:text-2xl font-black text-codGray self-center"
+                />
+                <Paragraph
+                  kind="p"
+                  content="left"
+                  css="text-boulder ml-3 self-center"
+                />
+              </div>
+            </div>
+          )}
+        </div>
 
         <Paragraph
           kind="p"

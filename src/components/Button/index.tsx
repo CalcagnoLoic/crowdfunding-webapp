@@ -13,6 +13,7 @@ const Component = ({ content, css, isDisabled }: ButtonProps) => {
     e.preventDefault();
 
     setIsModalOpen(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleCloseModal = () => {

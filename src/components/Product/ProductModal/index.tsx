@@ -57,12 +57,14 @@ const Component = ({ setCloseModal }: ModalProps) => {
           subtitle="Pledge $25 or more"
           id="bamboo"
           offer={offerBambooStand}
+          daysLeft="101"
         />
         <ModalOffer
           title="Black Edition Stand"
           subtitle="Pledge $75 or more"
           id="blackEdition"
           offer={offerBlackEdition}
+          daysLeft="64"
         />
         <ModalOffer
           title="Mahogany Special Edition"
@@ -70,6 +72,7 @@ const Component = ({ setCloseModal }: ModalProps) => {
           id="mahogany"
           offer={offerMahoganyEdition}
           isDisabled={true}
+          daysLeft="0"
         />
       </div>
     </>
