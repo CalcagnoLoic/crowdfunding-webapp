@@ -1,5 +1,6 @@
-import { useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
+import { useState } from "react";
+
 import IconBookmark from "../../icons/IconBookmark";
 import Paragraph from "../../typographies/Paragraph";
 
@@ -9,7 +10,7 @@ const Component = () => {
 
   return (
     <button
-      className={`cursor-pointer ${isClicked ? "text-genoa " : "text-boulder "} ${isMobile ? "bg-transparent" : "bg-wildSand"}relative flex rounded-full font-bold `}
+      className={`relative flex cursor-pointer rounded-full font-bold ${isClicked ? "text-genoa " : "text-boulder "} ${isMobile ? "bg-transparent" : "bg-wildSand"}  `}
       onClick={() => setIsClicked(!isClicked)}
     >
       <IconBookmark clicked={isClicked} />

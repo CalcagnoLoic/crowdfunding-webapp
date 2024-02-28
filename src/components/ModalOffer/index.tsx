@@ -1,8 +1,8 @@
 import { useState } from "react";
-import OfferLayout from "../../../layout/OfferLayout";
-import Heading from "../../../typographies/Heading";
-import Paragraph from "../../../typographies/Paragraph";
-import PledgeSection from "../../PledgeSection";
+import OfferLayout from "../../layout/OfferLayout";
+import Heading from "../../typographies/Heading";
+import Paragraph from "../../typographies/Paragraph";
+import PledgeSection from "../PledgeSection";
 
 type ModalOfferProps = {
   title: string;
@@ -28,7 +28,7 @@ const Component = ({
   };
 
   return (
-    <OfferLayout css="mt-8">
+    <OfferLayout css={`mt-8 ${isChecked ? "" : "border-keppel"} `}>
       <div className={isDisabled ? "opacity-30" : "cursor-pointer"}>
         <label
           htmlFor={id}
@@ -39,7 +39,7 @@ const Component = ({
             name="selectOffer"
             id={id}
             disabled={isDisabled}
-            className="w-4 accent-keppel"
+            className="w-4"
           />
           <div className="ml-4 flex flex-col md:flex-row" onClick={handleClick}>
             <Heading

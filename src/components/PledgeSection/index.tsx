@@ -1,6 +1,6 @@
+import Button from "../Button";
 import Line from "../Line";
 import Paragraph from "../../typographies/Paragraph";
-import Button from "../Button";
 
 const Component = () => {
   return (
@@ -19,13 +19,12 @@ const Component = () => {
           </label>
           <input
             type="text"
-            name=""
-            id=""
-            className="self-center rounded-full border-[1px] border-gallery px-5 py-4 pl-5 text-end font-extrabold active:border-keppel"
+            className="self-center rounded-full border-[1px] border-gallery px-5 py-4 pl-5 text-end font-extrabold caret-keppel outline-none focus:border-keppel"
           />
           <Button
             content="Continue"
-            css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center"
+            css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center cursor-pointer"
+            isDisabled={true}
           />
         </form>
       </div>

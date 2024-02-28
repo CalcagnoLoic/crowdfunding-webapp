@@ -1,11 +1,16 @@
 import { ProductStatProps } from "../../../types/type";
-import { textSection } from "../../../data/data";
+import {
+  offerBambooStand,
+  offerBlackEdition,
+  offerMahoganyEdition,
+  textSection,
+} from "../../../data/data";
 import { textSectionBis } from "../../../data/data";
 
 import BoxLayout from "../../../layout/BoxLayout";
 import Heading from "../../../typographies/Heading";
-import OfferSection from "../../OfferSection";
 import Paragraph from "../../../typographies/Paragraph";
+import BoxOffer from "../../BoxOffer";
 
 const Component = ({ positionCSS }: ProductStatProps) => (
   <BoxLayout
@@ -25,13 +30,35 @@ const Component = ({ positionCSS }: ProductStatProps) => (
         content={textSection}
         css="text-boulder mt-8 leading-7"
       />
+      
       <Paragraph
         kind="p"
         content={textSectionBis}
         css="text-boulder mt-8 leading-7"
       />
 
-      <OfferSection />
+      <BoxOffer
+        titleOffer="Bamboo Stand"
+        positionCSS="mt-10"
+        amount="$25"
+        offer={offerBambooStand}
+        daysLeft={101}
+      />
+      <BoxOffer
+        titleOffer="Black Edition Stand"
+        positionCSS="mt-5"
+        amount="$75"
+        offer={offerBlackEdition}
+        daysLeft={64}
+      />
+      <BoxOffer
+        titleOffer="Mahogany Special Edition"
+        positionCSS="mt-5"
+        amount="$200"
+        offer={offerMahoganyEdition}
+        daysLeft={0}
+        isDisabled={true}
+      />
     </>
   </BoxLayout>
 );

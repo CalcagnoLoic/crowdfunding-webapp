@@ -7,13 +7,11 @@ import ProductModal from "../Product/ProductModal";
 
 const Component = ({ content, css, isDisabled }: ButtonProps) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  const toggleStateAndModal = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.preventDefault();
 
-    setIsClicked(!isClicked);
     setIsModalOpen(true);
   };
 
@@ -26,7 +24,7 @@ const Component = ({ content, css, isDisabled }: ButtonProps) => {
       <button
         className={`${css} relative flex rounded-full font-bold `}
         disabled={isDisabled}
-        onClick={toggleStateAndModal}
+        onClick={toggleModal}
       >
         <Paragraph
           kind="p"
