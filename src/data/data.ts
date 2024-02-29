@@ -18,6 +18,9 @@ export const offerBlackEdition: string =
 export const offerMahoganyEdition: string =
   "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included. ";
 
+export const validityMessage: string =
+  "Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.";
+
 const NavContent: NavContent[] = [
   { id: 1, content: "About" },
   { id: 2, content: "Discover" },
