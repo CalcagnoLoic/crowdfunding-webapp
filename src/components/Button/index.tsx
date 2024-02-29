@@ -1,34 +1,45 @@
-import IconBookmark from "../../icons/IconBookmark";
+import { ButtonProps } from "../../types/type";
+import { createPortal } from "react-dom";
+import { useState } from "react";
+
 import Paragraph from "../../typographies/Paragraph";
+import ProductModal from "../Product/ProductModal";
 
-type ButtonProps = {
-  content: string;
-  css: string;
-  isIcon: boolean;
-  isMobile?: boolean;
-  isDisabled?: boolean;
-  onClick?: () => void;
-  clicked?: boolean;
-};
+const Component = ({ content, css, isDisabled }: ButtonProps) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-const Component = ({
-  content,
-  css,
-  isIcon,
-  isMobile,
-  isDisabled,
-  onClick,
-  clicked,
-}: ButtonProps) => {
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    setIsModalOpen(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <button
-      className={`${css} flex rounded-full font-bold ${isMobile ? "hidden" : ""}`}
-      disabled={isDisabled}
-      onClick={onClick}
-    >
-      {isIcon && clicked !== undefined && <IconBookmark clicked={clicked} />}
-      <Paragraph kind="p" content={content} css="self-center px-5" />
-    </button>
+    <>
+      <button
+        className={`${css} relative flex rounded-full font-bold `}
+        disabled={isDisabled}
+        onClick={toggleModal}
+      >
+        <Paragraph
+          kind="p"
+          content={content}
+          css="px-5 self-center block mx-auto"
+        />
+      </button>
+
+      {isModalOpen &&
+        createPortal(
+          <ProductModal setCloseModal={handleCloseModal} />,
+          document.body,
+        )}
+    </>
   );
 };
 

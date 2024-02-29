@@ -1,4 +1,4 @@
-import BoxOfferLayout from "../../layout/BoxOfferLayout";
+import OfferLayout from "../../layout/OfferLayout";
 import Button from "../Button";
 import Heading from "../../typographies/Heading";
 import Paragraph from "../../typographies/Paragraph";
@@ -20,7 +20,7 @@ const Component = ({
   daysLeft,
   isDisabled,
 }: OfferProps) => (
-  <BoxOfferLayout css={positionCSS}>
+  <OfferLayout css={positionCSS}>
     <div className={isDisabled ? "opacity-40" : ""}>
       <div className="md:flex md:justify-between">
         <Heading kind="h3" content={titleOffer} css="font-bold text-lg" />
@@ -53,15 +53,14 @@ const Component = ({
 
         <div className="mt-4 md:mt-2 md:self-center">
           <Button
-            isIcon={false}
             content={`${isDisabled ? "Out Of Stock" : "Select Reward"}`}
             css={`btn ${isDisabled ? "bg-boulder text-white cursor-not-allowed hover:bg-boulder" : "cursor-pointer"}`}
-            isDisabled={true}
+            isDisabled={isDisabled}
           />
         </div>
       </div>
     </div>
-  </BoxOfferLayout>
+  </OfferLayout>
 );
 
 export default Component;

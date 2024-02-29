@@ -27,9 +27,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           type="range"
           defaultValue={56}
           max={70}
-          name=""
-          id=""
-          className="mt-8 w-full accent-keppel [&::-webkit-slider-thumb]:opacity-0"
+          className="mt-8 w-full accent-keppel pointer-events-none"
         />
       </>
     </BoxLayout>
