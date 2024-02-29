@@ -55,6 +55,7 @@ const Component = ({
           <Button
             content={`${isDisabled ? "Out Of Stock" : "Select Reward"}`}
             css={`btn ${isDisabled ? "bg-boulder text-white cursor-not-allowed hover:bg-boulder" : "cursor-pointer"}`}
+            isDisabled={isDisabled}
           />
         </div>
       </div>

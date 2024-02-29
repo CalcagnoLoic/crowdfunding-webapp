@@ -8,11 +8,11 @@ export default {
         genoa: "#147B74",
         codGray: "#131313",
         boulder: "#7A7A7A",
-        wildSand: "#F4F4F4", //bookmark-btn
-        silver: "#CBCBCB", //disabled-btn
-        gallery: "#EAEAEA", //border box
-        gulfStream: "#8BB4B3", //active-box
-        patina: "#649694", //text-modal
+        wildSand: "#F4F4F4",
+        silver: "#CBCBCB", 
+        gallery: "#EAEAEA", 
+        gulfStream: "#8BB4B3",
+        patina: "#649694", 
         alabaster: "#FAFAFA",
         dustyGray: "#979797",
       },
