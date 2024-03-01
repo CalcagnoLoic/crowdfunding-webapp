@@ -6,7 +6,7 @@ import PledgeSection from "../PledgeSection";
 
 type ModalOfferProps = {
   title: string;
-  pledgeAmount: string | undefined;
+  pledgeAmount?: string;
   id: string;
   offer: string;
   isDisabled?: true;
