@@ -1,6 +1,7 @@
 import { useState } from "react";
-import OfferLayout from "../../layout/OfferLayout";
+
 import Heading from "../../typographies/Heading";
+import OfferLayout from "../../layout/OfferLayout";
 import Paragraph from "../../typographies/Paragraph";
 import PledgeSection from "../PledgeSection";
 
@@ -9,9 +10,9 @@ type ModalOfferProps = {
   pledgeAmount?: number;
   id: string;
   offer: string;
-  isDisabled?: true;
+  isDisabled?: boolean;
   isFreeOffer?: boolean;
-  offerLeft?: number;
+  offerLeft?: number | null;
   onClick?: () => void;
 };
 

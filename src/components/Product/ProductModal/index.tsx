@@ -1,4 +1,5 @@
 import { useClickOutside } from "../../../hooks/useClickOutside";
+import { useOfferContext } from "../../../hooks/useOfferContext";
 import { useRef } from "react";
 import {
   textBambooStand,
@@ -9,9 +10,8 @@ import {
 
 import Heading from "../../../typographies/Heading";
 import IconCloseModal from "../../../icons/IconCloseModal";
-import Paragraph from "../../../typographies/Paragraph";
 import ModalOffer from "../../ModalOffer";
-import { useOfferContext } from "../../../hooks/useOfferContext";
+import Paragraph from "../../../typographies/Paragraph";
 
 type ModalProps = {
   setCloseModal: (e: boolean) => void;
@@ -22,8 +22,10 @@ const Component = ({ setCloseModal }: ModalProps) => {
   const {
     offerLeftBamboo,
     offerLeftBlack,
+    offerLeftMahogany,
     removeOneBambooOffer,
     removeOneBlackOffer,
+    removeOneMahoganyOffer,
   } = useOfferContext();
 
   useClickOutside({ callback: setCloseModal, ref: modalRef });
@@ -64,24 +66,27 @@ const Component = ({ setCloseModal }: ModalProps) => {
           pledgeAmount={25}
           id="bamboo"
           offer={textBambooStand}
-          offerLeft={offerLeftBamboo}
+          offerLeft={offerLeftBamboo == 0 ? null : offerLeftBamboo}
           onClick={removeOneBambooOffer}
+          isDisabled={offerLeftBlack === 0 }
         />
         <ModalOffer
           title="Black Edition Stand"
           pledgeAmount={75}
           id="blackEdition"
           offer={textBlackEdition}
-          offerLeft={offerLeftBlack}
+          offerLeft={offerLeftBlack == 0 ? null : offerLeftBlack}
           onClick={removeOneBlackOffer}
+          isDisabled={offerLeftBlack === 0}
         />
         <ModalOffer
           title="Mahogany Special Edition"
           pledgeAmount={200}
           id="mahogany"
           offer={textMahoganyEdition}
-          isDisabled={true}
-          offerLeft={0}
+          offerLeft={offerLeftMahogany == 0 ? null : offerLeftMahogany}
+          onClick={removeOneMahoganyOffer}
+          isDisabled={offerLeftMahogany === 0}
         />
       </div>
     </>

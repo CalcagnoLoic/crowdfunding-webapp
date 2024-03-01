@@ -1,12 +1,13 @@
 //import { createPortal } from "react-dom";
-
+import { formValidation } from "../../utils/formValidation";
+import { useOfferContext } from "../../hooks/useOfferContext";
 import { useModalContext } from "../../hooks/useModalContext";
+import { useState } from "react";
+
 import Button from "../Button";
 import Line from "../Line";
 import Paragraph from "../../typographies/Paragraph";
 //import ValidationSection from "../ValidationSection";
-import { useState } from "react";
-import { useOfferContext } from "../../hooks/useOfferContext";
 
 interface PledgeSectionProps {
   pledgeAmount: number;
@@ -14,28 +15,17 @@ interface PledgeSectionProps {
 }
 
 const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
-  const { closeModal, openValidateModal } = useModalContext();
-  const { addPledgeAmount } = useOfferContext();
-  const [formData, setFormData] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
+  const [formData, setFormData] = useState<string>("");
+
+  const { addPledgeAmount } = useOfferContext();
+  const { closeModal } = useModalContext();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const formDataIsValid = (data: string, pledgeAmount: number) => {
-      const regex = /^\d+$/;
-      return (
-        data.trim() !== "" &&
-        regex.test(data) &&
-        Number(data.trim()) >= pledgeAmount
-      );
-    };
-
     setError(true);
 
-    if (formDataIsValid(formData, pledgeAmount)) {
-      setError(false);
-      openValidateModal();
+    if (formValidation(formData, pledgeAmount)) {      
       closeModal();
       addPledgeAmount(Number(formData));
     }
@@ -43,6 +33,7 @@ const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(e.target.value);
+    setError(false);
   };
 
   return (
@@ -72,6 +63,7 @@ const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
           <Button
             content="Continue"
             css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center cursor-pointer"
+            isDisabled={error ? true : false}
             onClick={onClick}
           />
         </form>
