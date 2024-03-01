@@ -5,10 +5,13 @@ import { useMobile } from "../../../hooks/useMobile";
 import BoxLayout from "../../../layout/BoxLayout";
 import Line from "../../Line";
 import StatsInformations from "../../StatsInformations";
+import { formatPrice } from "../../../utils/formatPrice";
 
 const Component = ({ positionCSS }: ProductStatProps) => {
   const isMobile = useMobile();
   const { amount } = useOfferContext();
+
+  const price = formatPrice(amount)
 
   return (
     <BoxLayout
@@ -19,7 +22,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
       <>
         <div className="flex flex-col text-center md:flex-row md:gap-12 lg:mr-36 lg:justify-between">
           <StatsInformations
-            title={`$ ${amount}`}
+            title={`$ ${price}`}
             subtitle="of $100.000 backed"
           />
           <Line isMobile={isMobile} />
