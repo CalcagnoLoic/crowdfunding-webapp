@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ModalOffer from ".";
 
 import {
-  offerBambooStand,
-  offerMahoganyEdition,
+  textBambooStand,
+  textMahoganyEdition,
   offerNoEdge,
 } from "../../data/data";
 
@@ -40,20 +40,20 @@ export const FreeOffer: Story = {
 export const PaidOffer: Story = {
   args: {
     title: "Bamboo Stand",
-    pledgeAmount: "Pledge $25 or more",
+    pledgeAmount: 25,
     id: "bamboo",
-    offer: offerBambooStand,
-    offerLeft: "101",
+    offer: textBambooStand,
+    offerLeft: 101
   },
 };
 
 export const DisabledOffer: Story = {
   args: {
     title: "Mahogany Special Edition",
-    pledgeAmount: "Pledge $200 or more",
+    pledgeAmount: 200,
     id: "mahogany",
-    offer: offerMahoganyEdition,
+    offer: textMahoganyEdition,
     isDisabled: true,
-    offerLeft: "0",
+    offerLeft: 0
   },
 };

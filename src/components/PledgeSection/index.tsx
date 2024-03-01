@@ -1,24 +1,33 @@
-import { createPortal } from "react-dom";
+//import { createPortal } from "react-dom";
 
 import { useModalContext } from "../../hooks/useModalContext";
 import Button from "../Button";
 import Line from "../Line";
 import Paragraph from "../../typographies/Paragraph";
-import ValidationSection from "../ValidationSection";
+//import ValidationSection from "../ValidationSection";
 import { useState } from "react";
+import { useOfferContext } from "../../hooks/useOfferContext";
 
-const Component = ({ pledgeAmount }: { pledgeAmount: string }) => {
-  const { isOpenModal, closeModal, openValidateModal } = useModalContext();
+interface PledgeSectionProps {
+  pledgeAmount: number;
+  onClick?: () => void;
+}
+
+const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
+  const { closeModal, openValidateModal } = useModalContext();
+  const { addPledgeAmount } = useOfferContext();
   const [formData, setFormData] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formDataIsValid = (data: string, pledgeAmount: string) => {
+    const formDataIsValid = (data: string, pledgeAmount: number) => {
       const regex = /^\d+$/;
       return (
-        data.trim() !== "" && regex.test(data) && data.trim() >= pledgeAmount
+        data.trim() !== "" &&
+        regex.test(data) &&
+        Number(data.trim()) >= pledgeAmount
       );
     };
 
@@ -28,6 +37,7 @@ const Component = ({ pledgeAmount }: { pledgeAmount: string }) => {
       setError(false);
       openValidateModal();
       closeModal();
+      addPledgeAmount(Number(formData));
     }
   };
 
@@ -62,6 +72,7 @@ const Component = ({ pledgeAmount }: { pledgeAmount: string }) => {
           <Button
             content="Continue"
             css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center cursor-pointer"
+            onClick={onClick}
           />
         </form>
       </div>
@@ -74,7 +85,7 @@ const Component = ({ pledgeAmount }: { pledgeAmount: string }) => {
         />
       )}
 
-      <>{!isOpenModal && createPortal(<ValidationSection />, document.body)}</>
+      {/* <>{!isOpenModal && createPortal(<ValidationSection />, document.body)}</> */}
     </>
   );
 };

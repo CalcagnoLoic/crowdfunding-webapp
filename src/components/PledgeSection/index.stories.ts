@@ -16,6 +16,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    pledgeAmount: "25",
+    pledgeAmount: 25,
   },
 };

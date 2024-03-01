@@ -4,9 +4,11 @@ import { ProductStatProps } from "../../../types/type";
 import BoxLayout from "../../../layout/BoxLayout";
 import Line from "../../Line";
 import StatsInformations from "../../StatsInformations";
+import { useOfferContext } from "../../../hooks/useOfferContext";
 
 const Component = ({ positionCSS }: ProductStatProps) => {
   const isMobile = useMobile();
+  const { amount } = useOfferContext();
 
   return (
     <BoxLayout
@@ -16,7 +18,10 @@ const Component = ({ positionCSS }: ProductStatProps) => {
     >
       <>
         <div className="flex flex-col text-center md:flex-row md:gap-12 lg:mr-36 lg:justify-between">
-          <StatsInformations title="$89,914" subtitle="of $100.000 backed" />
+          <StatsInformations
+            title={`$ ${amount}`}
+            subtitle="of $100.000 backed"
+          />
           <Line isMobile={isMobile} />
           <StatsInformations title="5,007" subtitle="total backers" />
           <Line isMobile={isMobile} />
@@ -27,7 +32,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           type="range"
           defaultValue={56}
           max={70}
-          className="mt-8 w-full accent-keppel pointer-events-none"
+          className="pointer-events-none mt-8 w-full accent-keppel"
         />
       </>
     </BoxLayout>

@@ -9,13 +9,13 @@ export const textSectionBis: string =
 export const offerNoEdge: string =
   "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.";
 
-export const offerBambooStand: string =
+export const textBambooStand: string =
   "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.";
 
-export const offerBlackEdition: string =
+export const textBlackEdition: string =
   "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.";
 
-export const offerMahoganyEdition: string =
+export const textMahoganyEdition: string =
   "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included. ";
 
 export const validityMessage: string =

@@ -1,7 +1,7 @@
 import Typographies from "../../typographies/Paragraph";
 
 type StatProps = {
-  title: string;
+  title: string | number;
   subtitle: string;
   css?: string
 };

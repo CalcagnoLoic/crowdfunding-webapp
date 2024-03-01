@@ -6,12 +6,13 @@ import PledgeSection from "../PledgeSection";
 
 type ModalOfferProps = {
   title: string;
-  pledgeAmount?: string;
+  pledgeAmount?: number;
   id: string;
   offer: string;
   isDisabled?: true;
   isFreeOffer?: boolean;
-  offerLeft?: string;
+  offerLeft?: number;
+  onClick?: () => void;
 };
 
 const Component = ({
@@ -22,6 +23,7 @@ const Component = ({
   isDisabled,
   isFreeOffer,
   offerLeft,
+  onClick,
 }: ModalOfferProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
 
@@ -88,9 +90,12 @@ const Component = ({
           css="ml-7 mt-3 leading-7 text-boulder"
         />
 
-        {!isChecked && !isDisabled && !isFreeOffer && (
-          pledgeAmount ? <PledgeSection pledgeAmount={pledgeAmount} /> : null
-        )}
+        {!isChecked &&
+          !isDisabled &&
+          !isFreeOffer &&
+          (pledgeAmount ? (
+            <PledgeSection pledgeAmount={pledgeAmount} onClick={onClick} />
+          ) : null)}
       </div>
     </OfferLayout>
   );
