@@ -1,6 +1,6 @@
-import OfferLayout from "../../layout/OfferLayout";
 import Button from "../Button";
 import Heading from "../../typographies/Heading";
+import OfferLayout from "../../layout/OfferLayout";
 import Paragraph from "../../typographies/Paragraph";
 
 interface OfferProps {
@@ -20,9 +20,11 @@ const Component = ({
   offerLeft,
   isDisabled,
 }: OfferProps) => {
+
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  
   return (
     <OfferLayout css={positionCSS}>
       <div className={isDisabled ? "opacity-40" : ""}>

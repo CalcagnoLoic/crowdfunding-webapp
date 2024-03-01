@@ -4,17 +4,18 @@ import {
   textBlackEdition,
   textMahoganyEdition,
   textSection,
+  textSectionBis,
 } from "../../../data/data";
-import { textSectionBis } from "../../../data/data";
-
-import BoxLayout from "../../../layout/BoxLayout";
-import Heading from "../../../typographies/Heading";
-import Paragraph from "../../../typographies/Paragraph";
-import BoxOffer from "../../BoxOffer";
 import { useOfferContext } from "../../../hooks/useOfferContext";
 
+import BoxLayout from "../../../layout/BoxLayout";
+import BoxOffer from "../../BoxOffer";
+import Heading from "../../../typographies/Heading";
+import Paragraph from "../../../typographies/Paragraph";
+
 const Component = ({ positionCSS }: ProductStatProps) => {
-  const { offerLeftBamboo, offerLeftBlack } = useOfferContext();
+  const { offerLeftBamboo, offerLeftBlack, offerLeftMahogany } =
+    useOfferContext();
   return (
     <BoxLayout
       css={`
@@ -46,6 +47,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           amount="$25"
           offer={textBambooStand}
           offerLeft={offerLeftBamboo}
+          isDisabled={offerLeftBamboo == 0 ? true : false}
         />
         <BoxOffer
           titleOffer="Black Edition Stand"
@@ -53,14 +55,15 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           amount="$75"
           offer={textBlackEdition}
           offerLeft={offerLeftBlack}
+          isDisabled={offerLeftBlack == 0 ? true : false}
         />
         <BoxOffer
           titleOffer="Mahogany Special Edition"
           positionCSS="mt-5"
           amount="$200"
           offer={textMahoganyEdition}
-          offerLeft={0}
-          isDisabled={true}
+          offerLeft={offerLeftMahogany}
+          isDisabled={offerLeftMahogany == 0 ? true : false}
         />
       </>
     </BoxLayout>

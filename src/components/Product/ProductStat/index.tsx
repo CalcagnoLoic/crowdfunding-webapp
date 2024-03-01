@@ -1,10 +1,10 @@
-import { useMobile } from "../../../hooks/useMobile";
 import { ProductStatProps } from "../../../types/type";
+import { useOfferContext } from "../../../hooks/useOfferContext";
+import { useMobile } from "../../../hooks/useMobile";
 
 import BoxLayout from "../../../layout/BoxLayout";
 import Line from "../../Line";
 import StatsInformations from "../../StatsInformations";
-import { useOfferContext } from "../../../hooks/useOfferContext";
 
 const Component = ({ positionCSS }: ProductStatProps) => {
   const isMobile = useMobile();

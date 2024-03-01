@@ -1,12 +1,12 @@
+import { createPortal } from "react-dom";
+import { useModalContext } from "../../../hooks/useModalContext";
+
+import Bookmark from "../../Bookmark";
 import BoxLayout from "../../../layout/BoxLayout";
 import Button from "../../Button";
 import Heading from "../../../typographies/Heading";
 import IconLogo from "../../../icons/IconLogo";
 import Paragraph from "../../../typographies/Paragraph";
-
-import Bookmark from "../../Bookmark";
-import { useModalContext } from "../../../hooks/useModalContext";
-import { createPortal } from "react-dom";
 import ProductModal from "../ProductModal";
 
 const Component = () => {
