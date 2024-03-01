@@ -68,7 +68,7 @@ const Component = ({ setCloseModal }: ModalProps) => {
           offer={textBambooStand}
           offerLeft={offerLeftBamboo == 0 ? null : offerLeftBamboo}
           onClick={removeOneBambooOffer}
-          isDisabled={offerLeftBlack == 0 ? true : false}
+          isDisabled={offerLeftBlack === 0 }
         />
         <ModalOffer
           title="Black Edition Stand"
@@ -77,7 +77,7 @@ const Component = ({ setCloseModal }: ModalProps) => {
           offer={textBlackEdition}
           offerLeft={offerLeftBlack == 0 ? null : offerLeftBlack}
           onClick={removeOneBlackOffer}
-          isDisabled={offerLeftBlack == 0 ? true : false}
+          isDisabled={offerLeftBlack === 0}
         />
         <ModalOffer
           title="Mahogany Special Edition"
@@ -86,7 +86,7 @@ const Component = ({ setCloseModal }: ModalProps) => {
           offer={textMahoganyEdition}
           offerLeft={offerLeftMahogany == 0 ? null : offerLeftMahogany}
           onClick={removeOneMahoganyOffer}
-          isDisabled={offerLeftMahogany == 0 ? true : false}
+          isDisabled={offerLeftMahogany === 0}
         />
       </div>
     </>

@@ -47,7 +47,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           amount="$25"
           offer={textBambooStand}
           offerLeft={offerLeftBamboo}
-          isDisabled={offerLeftBamboo == 0 ? true : false}
+          isDisabled={offerLeftBamboo === 0}
         />
         <BoxOffer
           titleOffer="Black Edition Stand"
@@ -55,7 +55,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           amount="$75"
           offer={textBlackEdition}
           offerLeft={offerLeftBlack}
-          isDisabled={offerLeftBlack == 0 ? true : false}
+          isDisabled={offerLeftBlack === 0}
         />
         <BoxOffer
           titleOffer="Mahogany Special Edition"
@@ -63,7 +63,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
           amount="$200"
           offer={textMahoganyEdition}
           offerLeft={offerLeftMahogany}
-          isDisabled={offerLeftMahogany == 0 ? true : false}
+          isDisabled={offerLeftMahogany === 0}
         />
       </>
     </BoxLayout>
