@@ -6,22 +6,22 @@ import PledgeSection from "../PledgeSection";
 
 type ModalOfferProps = {
   title: string;
-  subtitle?: string;
+  pledgeAmount: string | undefined;
   id: string;
   offer: string;
   isDisabled?: true;
   isFreeOffer?: boolean;
-  daysLeft?: string;
+  offerLeft?: string;
 };
 
 const Component = ({
   title,
-  subtitle,
+  pledgeAmount,
   id,
   offer,
   isDisabled,
   isFreeOffer,
-  daysLeft,
+  offerLeft,
 }: ModalOfferProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
 
@@ -54,22 +54,22 @@ const Component = ({
                 css={`font-bold ${isDisabled ? "" : "hover:text-keppel"}`}
               />
 
-              {subtitle && (
+              {pledgeAmount && (
                 <Heading
                   kind="h3"
-                  content={subtitle}
+                  content={`Pledge $ ${pledgeAmount} or more`}
                   css="text-keppel mt-2 md:mt-0 md:ml-4"
                 />
               )}
             </div>
           </label>
 
-          {daysLeft && (
+          {offerLeft && (
             <div className="self-center">
               <div className="flex">
                 <Paragraph
                   kind="p"
-                  content={daysLeft}
+                  content={offerLeft}
                   css="text-xl md:text-2xl font-black text-codGray self-center"
                 />
                 <Paragraph
@@ -88,7 +88,9 @@ const Component = ({
           css="ml-7 mt-3 leading-7 text-boulder"
         />
 
-        {!isChecked && !isDisabled && !isFreeOffer && <PledgeSection />}
+        {!isChecked && !isDisabled && !isFreeOffer && (
+          pledgeAmount ? <PledgeSection pledgeAmount={pledgeAmount} /> : null
+        )}
       </div>
     </OfferLayout>
   );

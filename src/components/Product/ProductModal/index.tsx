@@ -54,25 +54,25 @@ const Component = ({ setCloseModal }: ModalProps) => {
         />
         <ModalOffer
           title="Bamboo Stand"
-          subtitle="Pledge $25 or more"
+          pledgeAmount="25"
           id="bamboo"
           offer={offerBambooStand}
-          daysLeft="101"
+          offerLeft="101"
         />
         <ModalOffer
           title="Black Edition Stand"
-          subtitle="Pledge $75 or more"
+          pledgeAmount="75"
           id="blackEdition"
           offer={offerBlackEdition}
-          daysLeft="64"
+          offerLeft="64"
         />
         <ModalOffer
           title="Mahogany Special Edition"
-          subtitle="Pledge $200 or more"
+          pledgeAmount="200"
           id="mahogany"
           offer={offerMahoganyEdition}
           isDisabled={true}
-          daysLeft="0"
+          offerLeft="0"
         />
       </div>
     </>

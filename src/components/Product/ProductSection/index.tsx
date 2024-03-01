@@ -42,21 +42,21 @@ const Component = ({ positionCSS }: ProductStatProps) => (
         positionCSS="mt-10"
         amount="$25"
         offer={offerBambooStand}
-        daysLeft={101}
+        offerLeft={101}
       />
       <BoxOffer
         titleOffer="Black Edition Stand"
         positionCSS="mt-5"
         amount="$75"
         offer={offerBlackEdition}
-        daysLeft={64}
+        offerLeft={64}
       />
       <BoxOffer
         titleOffer="Mahogany Special Edition"
         positionCSS="mt-5"
         amount="$200"
         offer={offerMahoganyEdition}
-        daysLeft={0}
+        offerLeft={0}
         isDisabled={true}
       />
     </>

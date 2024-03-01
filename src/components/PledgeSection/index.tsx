@@ -1,19 +1,38 @@
 import { createPortal } from "react-dom";
 
+import { useModalContext } from "../../hooks/useModalContext";
 import Button from "../Button";
 import Line from "../Line";
 import Paragraph from "../../typographies/Paragraph";
 import ValidationSection from "../ValidationSection";
 import { useState } from "react";
 
-const Component = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+const Component = ({ pledgeAmount }: { pledgeAmount: string }) => {
+  const { isOpenModal, closeModal, openValidateModal } = useModalContext();
+  const [formData, setFormData] = useState<string>("");
+  const [error, setError] = useState<boolean>(false);
 
-  console.log(isModalOpen);
-
-  const toggleModal = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsModalOpen(true);
+
+    const formDataIsValid = (data: string, pledgeAmount: string) => {
+      const regex = /^\d+$/;
+      return (
+        data.trim() !== "" && regex.test(data) && data.trim() >= pledgeAmount
+      );
+    };
+
+    setError(true);
+
+    if (formDataIsValid(formData, pledgeAmount)) {
+      setError(false);
+      openValidateModal();
+      closeModal();
+    }
+  };
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(e.target.value);
   };
 
   return (
@@ -28,7 +47,7 @@ const Component = () => {
         />
         <form
           className="mt-4 flex flex-col gap-4 md:mt-0 md:flex-row"
-          onSubmit={toggleModal}
+          onSubmit={handleSubmit}
         >
           <label className="absolute ml-2 mt-4  text-boulder md:ml-5 md:mt-0 md:block md:self-center">
             $
@@ -36,15 +55,26 @@ const Component = () => {
           <input
             type="text"
             className="self-center rounded-full border-[1px] border-gallery px-5 py-4 pl-5 text-end font-extrabold caret-keppel outline-none focus:border-keppel"
+            value={formData}
+            onChange={handleChangeInput}
           />
+
           <Button
             content="Continue"
             css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center cursor-pointer"
           />
         </form>
-
-        {isModalOpen && createPortal(<ValidationSection />, document.body)}
       </div>
+
+      {error && (
+        <Paragraph
+          kind="span"
+          content="You must define an higher pledge or enter write a number"
+          css="text-end text-sm italic text-red-600"
+        />
+      )}
+
+      <>{!isOpenModal && createPortal(<ValidationSection />, document.body)}</>
     </>
   );
 };

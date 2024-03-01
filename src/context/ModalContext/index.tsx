@@ -2,42 +2,39 @@ import { createContext, useState } from "react";
 
 interface ModalContext {
   isOpenModal: boolean;
-  isCurrentId: string | null;
-  openModal: (e: React.MouseEvent<HTMLButtonElement>, modalID: string) => void;
-  closeModal: (e: React.MouseEvent<HTMLDivElement>) => void;
+  openModal: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  closeModal: () => void;
+  openValidateModal: () => void;
 }
 
 export const ModalContext = createContext<ModalContext>({
   isOpenModal: false,
-  isCurrentId: null,
   openModal: () => {},
   closeModal: () => {},
+  openValidateModal: () => {},
 });
 
 export const ModalProvider = ({ children }: { children: JSX.Element }) => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [isCurrentId, setIsCurrentId] = useState<string | null>(null);
 
-  const openModal = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    modalID: string,
-  ) => {
+  const openModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setIsOpenModal(true);
-    setIsCurrentId(modalID);
   };
 
-  const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+  const closeModal = () => {
     setIsOpenModal(false);
-    setIsCurrentId(null);
+  };
+
+  const openValidateModal = () => {
+    setIsOpenModal(true);
   };
 
   const contextValue = {
     isOpenModal,
-    isCurrentId,
     openModal,
     closeModal,
+    openValidateModal,
   };
 
   return (

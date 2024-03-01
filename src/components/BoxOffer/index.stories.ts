@@ -11,7 +11,7 @@ const meta = {
     positionCSS: { description: "Css position of the box" },
     amount: { description: "The price allocated to the offer" },
     offer: { description: "The descriptive text of the offer" },
-    daysLeft: { description: "The number of days remaining" },
+    offerLeft: { description: "The number of offer remaining" },
     isDisabled: {
       description: "Defined whether the offer is available or not",
     },
@@ -28,7 +28,7 @@ export const Offer: Story = {
     amount: "25",
     offer:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur laboriosam necessitatibus voluptates sapiente quisquam voluptatum velit mollitia amet non libero, quibusdam blanditiis quo. Doloribus sit porro odit atque exercitationem mollitia.",
-    daysLeft: 5,
+    offerLeft: 5,
   },
 };
 
@@ -39,7 +39,7 @@ export const DisabledOffer: Story = {
     amount: "25",
     offer:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur laboriosam necessitatibus voluptates sapiente quisquam voluptatum velit mollitia amet non libero, quibusdam blanditiis quo. Doloribus sit porro odit atque exercitationem mollitia.",
-    daysLeft: 5,
+    offerLeft: 5,
     isDisabled: true,
   },
 };

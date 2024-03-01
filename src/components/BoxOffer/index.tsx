@@ -8,7 +8,7 @@ interface OfferProps {
   positionCSS: string;
   amount: string;
   offer: string;
-  daysLeft: number;
+  offerLeft: number;
   isDisabled?: boolean;
 }
 
@@ -17,7 +17,7 @@ const Component = ({
   positionCSS,
   amount,
   offer,
-  daysLeft,
+  offerLeft,
   isDisabled,
 }: OfferProps) => (
   <OfferLayout css={positionCSS}>
@@ -41,7 +41,7 @@ const Component = ({
         <div className=" flex ">
           <Paragraph
             kind="p"
-            content={daysLeft}
+            content={offerLeft}
             css="text-4xl font-black text-codGray self-center"
           />
           <Paragraph
@@ -55,7 +55,6 @@ const Component = ({
           <Button
             content={`${isDisabled ? "Out Of Stock" : "Select Reward"}`}
             css={`btn ${isDisabled ? "bg-boulder text-white cursor-not-allowed hover:bg-boulder" : "cursor-pointer"}`}
-            isDisabled={isDisabled}
           />
         </div>
       </div>
