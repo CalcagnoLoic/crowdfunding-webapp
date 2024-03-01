@@ -1,9 +1,9 @@
 import { useClickOutside } from "../../../hooks/useClickOutside";
 import { useRef } from "react";
 import {
-  offerBambooStand,
-  offerBlackEdition,
-  offerMahoganyEdition,
+  textBambooStand,
+  textBlackEdition,
+  textMahoganyEdition,
   offerNoEdge,
 } from "../../../data/data";
 
@@ -11,6 +11,7 @@ import Heading from "../../../typographies/Heading";
 import IconCloseModal from "../../../icons/IconCloseModal";
 import Paragraph from "../../../typographies/Paragraph";
 import ModalOffer from "../../ModalOffer";
+import { useOfferContext } from "../../../hooks/useOfferContext";
 
 type ModalProps = {
   setCloseModal: (e: boolean) => void;
@@ -18,6 +19,12 @@ type ModalProps = {
 
 const Component = ({ setCloseModal }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const {
+    offerLeftBamboo,
+    offerLeftBlack,
+    removeOneBambooOffer,
+    removeOneBlackOffer,
+  } = useOfferContext();
 
   useClickOutside({ callback: setCloseModal, ref: modalRef });
 
@@ -54,25 +61,27 @@ const Component = ({ setCloseModal }: ModalProps) => {
         />
         <ModalOffer
           title="Bamboo Stand"
-          subtitle="Pledge $25 or more"
+          pledgeAmount={25}
           id="bamboo"
-          offer={offerBambooStand}
-          daysLeft="101"
+          offer={textBambooStand}
+          offerLeft={offerLeftBamboo}
+          onClick={removeOneBambooOffer}
         />
         <ModalOffer
           title="Black Edition Stand"
-          subtitle="Pledge $75 or more"
+          pledgeAmount={75}
           id="blackEdition"
-          offer={offerBlackEdition}
-          daysLeft="64"
+          offer={textBlackEdition}
+          offerLeft={offerLeftBlack}
+          onClick={removeOneBlackOffer}
         />
         <ModalOffer
           title="Mahogany Special Edition"
-          subtitle="Pledge $200 or more"
+          pledgeAmount={200}
           id="mahogany"
-          offer={offerMahoganyEdition}
+          offer={textMahoganyEdition}
           isDisabled={true}
-          daysLeft="0"
+          offerLeft={0}
         />
       </div>
     </>

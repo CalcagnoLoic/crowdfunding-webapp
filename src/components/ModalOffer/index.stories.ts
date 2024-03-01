@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ModalOffer from ".";
 
 import {
-  offerBambooStand,
-  offerMahoganyEdition,
+  textBambooStand,
+  textMahoganyEdition,
   offerNoEdge,
 } from "../../data/data";
 
@@ -14,12 +14,14 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     title: { description: "The content of the offer" },
-    subtitle: { description: "The minimal amount of dollars for the offer" },
+    pledgeAmount: {
+      description: "The minimal amount of dollars for the offer",
+    },
     id: { description: "The unique token for the offer" },
     offer: { description: "The content of the offer and their advantages" },
     isDisabled: { description: "Define if the offer is avalaible or not" },
     isFreeOffer: { description: "Define if the offer is free or not" },
-    daysLeft: { description: "Define the amount of days left" },
+    offerLeft: { description: "Define the amount of days left" },
   },
 } satisfies Meta<typeof ModalOffer>;
 
@@ -38,20 +40,20 @@ export const FreeOffer: Story = {
 export const PaidOffer: Story = {
   args: {
     title: "Bamboo Stand",
-    subtitle: "Pledge $25 or more",
+    pledgeAmount: 25,
     id: "bamboo",
-    offer: offerBambooStand,
-    daysLeft: "101",
+    offer: textBambooStand,
+    offerLeft: 101
   },
 };
 
 export const DisabledOffer: Story = {
   args: {
     title: "Mahogany Special Edition",
-    subtitle: "Pledge $200 or more",
+    pledgeAmount: 200,
     id: "mahogany",
-    offer: offerMahoganyEdition,
+    offer: textMahoganyEdition,
     isDisabled: true,
-    daysLeft: "0",
+    offerLeft: 0
   },
 };

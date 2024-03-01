@@ -5,8 +5,13 @@ import IconLogo from "../../../icons/IconLogo";
 import Paragraph from "../../../typographies/Paragraph";
 
 import Bookmark from "../../Bookmark";
+import { useModalContext } from "../../../hooks/useModalContext";
+import { createPortal } from "react-dom";
+import ProductModal from "../ProductModal";
 
 const Component = () => {
+  const { isOpenModal, openModal, closeModal } = useModalContext();
+
   return (
     <BoxLayout css="relative py-8 ">
       <IconLogo
@@ -27,10 +32,22 @@ const Component = () => {
       />
 
       <div className="mt-10 flex justify-center px-2 md:justify-between md:px-12">
-        <Button content="Back this project" css="btn cursor-pointer" />
+        <Button
+          content="Back this project"
+          css="btn cursor-pointer"
+          onClick={openModal}
+        />
 
         <Bookmark />
       </div>
+
+      <>
+        {isOpenModal &&
+          createPortal(
+            <ProductModal setCloseModal={closeModal} />,
+            document.body,
+          )}
+      </>
     </BoxLayout>
   );
 };
