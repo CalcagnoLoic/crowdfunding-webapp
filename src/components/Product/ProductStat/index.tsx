@@ -33,8 +33,8 @@ const Component = ({ positionCSS }: ProductStatProps) => {
 
         <input
           type="range"
-          defaultValue={56}
-          max={70}
+          defaultValue={amount}
+          max={100000}
           className="pointer-events-none mt-8 w-full accent-keppel"
         />
       </>
