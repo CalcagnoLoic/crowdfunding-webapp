@@ -4,14 +4,12 @@ interface ModalContext {
   isOpenModal: boolean;
   openModal: (e: React.MouseEvent<HTMLButtonElement>) => void;
   closeModal: () => void;
-  openValidateModal: () => void;
 }
 
 export const ModalContext = createContext<ModalContext>({
   isOpenModal: false,
   openModal: () => {},
   closeModal: () => {},
-  openValidateModal: () => {},
 });
 
 export const ModalProvider = ({ children }: { children: JSX.Element }) => {
@@ -26,15 +24,10 @@ export const ModalProvider = ({ children }: { children: JSX.Element }) => {
     setIsOpenModal(false);
   };
 
-  const openValidateModal = () => {
-    setIsOpenModal(true);
-  };
-
   const contextValue = {
     isOpenModal,
     openModal,
     closeModal,
-    openValidateModal,
   };
 
   return (

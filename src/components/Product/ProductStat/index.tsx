@@ -11,7 +11,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
   const isMobile = useMobile();
   const { amount } = useOfferContext();
 
-  const price = formatPrice(amount)
+  const price = formatPrice(amount);
 
   return (
     <BoxLayout
@@ -20,7 +20,7 @@ const Component = ({ positionCSS }: ProductStatProps) => {
       `}
     >
       <>
-        <div className="flex flex-col text-center md:flex-row md:gap-12 lg:mr-36 lg:justify-between">
+        <div className="mx-12 flex flex-col justify-between text-center md:flex-row">
           <StatsInformations
             title={`$ ${price}`}
             subtitle="of $100.000 backed"
@@ -33,8 +33,8 @@ const Component = ({ positionCSS }: ProductStatProps) => {
 
         <input
           type="range"
-          defaultValue={56}
-          max={70}
+          defaultValue={amount}
+          max={100000}
           className="pointer-events-none mt-8 w-full accent-keppel"
         />
       </>

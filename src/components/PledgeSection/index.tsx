@@ -1,13 +1,12 @@
-//import { createPortal } from "react-dom";
 import { formValidation } from "../../utils/formValidation";
 import { useOfferContext } from "../../hooks/useOfferContext";
-import { useModalContext } from "../../hooks/useModalContext";
 import { useState } from "react";
 
 import Button from "../Button";
 import Line from "../Line";
 import Paragraph from "../../typographies/Paragraph";
-//import ValidationSection from "../ValidationSection";
+import { createPortal } from "react-dom";
+import ValidationSection from "../ValidationSection";
 
 interface PledgeSectionProps {
   pledgeAmount: number;
@@ -17,17 +16,19 @@ interface PledgeSectionProps {
 const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
   const [error, setError] = useState<boolean>(false);
   const [formData, setFormData] = useState<string>("");
+  const [validationModal, setValidationModal] = useState<boolean>(false);
 
   const { addPledgeAmount } = useOfferContext();
-  const { closeModal } = useModalContext();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(true);
 
-    if (formValidation(formData, pledgeAmount)) {      
-      closeModal();
+    if (formValidation(formData, pledgeAmount)) {
+      setError(false);
+      onClick && onClick();
       addPledgeAmount(Number(formData));
+      setValidationModal(true);
     }
   };
 
@@ -64,7 +65,6 @@ const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
             content="Continue"
             css="bg-keppel text-sm md:text-base text-white px-5 py-4 hover:bg-genoa ease-in-out transition duration-300 text-center cursor-pointer"
             isDisabled={error ? true : false}
-            onClick={onClick}
           />
         </form>
       </div>
@@ -77,7 +77,7 @@ const Component = ({ pledgeAmount, onClick }: PledgeSectionProps) => {
         />
       )}
 
-      {/* <>{!isOpenModal && createPortal(<ValidationSection />, document.body)}</> */}
+      {validationModal && createPortal(<ValidationSection />, document.body)}
     </>
   );
 };
