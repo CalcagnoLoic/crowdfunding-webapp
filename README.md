@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+# Crowdfunding product page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Participatory funding product page where users can select certain offers to increase funding. Users can add a bookmark to the products they wish to finance. 
 
-Currently, two official plugins are available:
+The stories are hosted on Chromatic at this [URL]().
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=ts,react,tailwind,vite" />
+  </a>
+</p>
 
-## Expanding the ESLint configuration
+<p align="center">
+  <img src="./public/assets/img/readme.png" width="70%" /> 
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## User stories
 
-- Configure the top-level `parserOptions` property like this:
+Your users should be able to:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [x] Make a selection of which pledge to make
+- [x] See an updated progress bar and total money raised based on their pledge total after confirming a pledge
+- [x] See the number of total backers increment by one after confirming a pledge
+- [x] Toggle whether or not the product is bookmarked
+- [x] View the optimal layout depending on their device's screen size
+- [x] See hover states for interactive elements
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Built with
+
+- Semantic HTML5 markup
+- Mobile-first workflow
+- TailwindCSS
+- React
+- Storybook
+- Chromatic
+
+## Author
+
+- Website - [Portfolio](https://calcagno-loic.netlify.app/)
+- Frontend Mentor - [@CalcagnoLoic](https://www.frontendmentor.io/profile/CalcagnoLoic)
