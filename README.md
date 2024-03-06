@@ -11,7 +11,7 @@ The stories are hosted on Chromatic at this [URL]().
 </p>
 
 <p align="center">
-  <img src="./public/assets/images/readme.png" width="70%" /> 
+  <img src="./public/images/readme.png" width="70%" /> 
 </p>
 
 ## User stories
