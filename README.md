@@ -1,8 +1,8 @@
 # Crowdfunding product page
 
-Participatory funding product page where users can select certain offers to increase funding. Users can add a bookmark to the products they wish to finance. 
+Participatory funding product page where users can select certain offers to increase funding. Users can add a bookmark to the products they wish to finance.
 
-The stories are hosted on Chromatic at this [URL]().
+The stories are hosted on Chromatic at this [URL](https://65fea557005e1e6abef7c259-mskecrihhi.chromatic.com/).
 
 <p align="center">
   <a href="https://skillicons.dev">

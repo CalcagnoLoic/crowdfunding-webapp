@@ -12,7 +12,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "dev:compile": "tsc --watch",
-    "dev:test": "vitest"
+    "dev:test": "vitest",
+    "test": "vitest"
   },
   "dependencies": {
     "react": "^18.2.0",
